@@ -10,7 +10,10 @@ func main() {
 	counts := make(map[string]int)
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
-		counts[input.Text()]++
+		line := input.Text()
+		fmt.Println("line", line)
+		counts[line] = counts[line] + 1
+		fmt.Println("count line", counts[line])
 	}
 	for line, n := range counts {
 		if n > 1 {
